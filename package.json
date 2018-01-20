@@ -4,7 +4,7 @@
   "description": "A blog built with React.",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server",
     "build": "webpack",
     "dev": "webpack --watch"
   },
@@ -18,9 +18,12 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "css-loader": "^0.28.9",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
     "node-sass": "^4.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0"

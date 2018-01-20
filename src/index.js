@@ -1,9 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-import CTA from './components/CTA';
+import App from './App';
 
 render(
-  <CTA label="Example" onClick={() => { console.log('Clicked'); }} />,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById('root')
 );
