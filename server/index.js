@@ -4,14 +4,17 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-const renderMarkup = require('./lib/renderMarkup');
+const render = require('./lib/render');
+const { getPostByUID } = require('./lib/content');
 
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, '../build')));
 
-app.get('*', (req, res) => {
-  res.send(renderMarkup(req.url));
+app.get('/post/:uid', (req, res) => {
+  getPostByUID(req.params.uid).then(data => {
+    res.send(render(req.url, data));
+  });
 });
 
 app.listen(PORT, (err) => {

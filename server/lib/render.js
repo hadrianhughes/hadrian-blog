@@ -4,13 +4,13 @@ const { StaticRouter } = require('react-router-dom');
 
 const App = require('../../src/App').default;
 
-module.exports = (location) => (
+module.exports = (location, data) => (
   renderToString(
     <StaticRouter
       location={location}
       context={{}}
     >
-      <App />
+      <App data={data} />
     </StaticRouter>
   )
 );

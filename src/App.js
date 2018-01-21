@@ -1,12 +1,24 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Article from './components/Article';
+import Post from './components/Post';
 
-const App = () => (
+const App = ({ data }) => (
   <Switch>
-    <Route exact path="/" component={Article} />
-    <Route path="/article" component={Article} />
+    <Route exact path="/" render={props => (
+      <Post
+        title={data.data.post.title}
+        image={data.data.post.image}
+        body={data.data.body}
+      />
+    )} />
+    <Route path="/post" render={props => (
+      <Post
+        title={data.data.post.title}
+        image={data.data.post.image}
+        body={data.data.post.body}
+      />
+    )} />
   </Switch>
 );
 
