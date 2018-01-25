@@ -6,6 +6,7 @@ const path = require('path');
 
 const render = require('./lib/render');
 const { getPostByUID } = require('./lib/content');
+const log = require('./lib/log');
 
 const PORT = process.env.PORT || 3000;
 
@@ -20,5 +21,5 @@ app.get('/post/:uid', (req, res) => {
 app.listen(PORT, (err) => {
   if (err) throw err;
 
-  console.info(`Listening on port ${PORT}...`);
+  log.info(`Listening on port ${PORT}...`);
 });
