@@ -8,6 +8,7 @@ services:
     environment:
       PORT: 80
       NODE_ENV: production
+      CONTENT_ENDPOINT: http://content-service:3000
   content-service:
     container_name: content-service
     build: ../content-service
