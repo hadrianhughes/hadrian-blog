@@ -1,0 +1,18 @@
+version: '2.1'
+services:
+  blog:
+    container_name: blog
+    build: .
+    ports:
+      - '80:80'
+    environment:
+      PORT: 80
+      NODE_ENV: production
+  content-service:
+    container_name: content-service
+    build: ../content-service
+    ports:
+      - '3000:3000'
+    environment:
+      PORT: 3000
+      NODE_ENV: production
