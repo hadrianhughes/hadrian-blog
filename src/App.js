@@ -14,13 +14,24 @@ const App = ({ data }) => (
           body={data.data.body}
         />
       )} />
-      <Route path="/post" render={props => (
+      <Route path="/post/:postUid" render={props => (
         <Post
           title={data.data.post.title}
           image={data.data.post.image}
           body={data.data.post.body}
         />
       )} />
+      <Route path="/about" render={props => {
+        /*
+          render about page
+        */
+      }} />
+      <Route path="/search/:terms" render={props => {
+        /*
+          render post list
+        */
+      }}
+      />
     </Switch>
   </Layout>
 );
