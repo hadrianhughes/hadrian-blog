@@ -35,6 +35,12 @@ app.get('/search/:terms', (req, res) => {
   log.info({ route: 'search', status: 200, req.params }, 'Responded with 200');
 });
 
+app.get('*', (req, res) => {
+  res.status(404);
+  res.end();
+  log.info({ route: 'NOT FOUND', status: 404 }, 'Responded with 404');
+});
+
 app.listen(PORT, (err) => {
   if (err) throw err;
 
