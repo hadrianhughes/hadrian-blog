@@ -4,7 +4,7 @@
   "description": "A blog built with React.",
   "main": "",
   "scripts": {
-    "start": "node server",
+    "start": "node build/server",
     "build": "webpack",
     "dev": "webpack --watch"
   },
@@ -23,6 +23,7 @@
     "express": "^4.16.2",
     "node-sass": "^4.7.2",
     "prismic-javascript": "^1.5.0-beta.1",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
@@ -30,5 +31,9 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0"
+  },
+  "devDependencies": {
+    "isomorphic-style-loader": "^4.0.0",
+    "webpack-node-externals": "^1.6.0"
   }
 }
