@@ -1,3 +1,6 @@
+@import '../../styles/settings.scss';
+@import '../../styles/tools.scss';
+
 .root {
-  color: black;
+  color: t-color(black);
 }
