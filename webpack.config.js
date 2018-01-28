@@ -31,25 +31,7 @@ const scssRule = {
 	])
 };
 
-const urlRule = {
-	test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-	use: {
-		loader: 'url-loader',
-		options: { 
-			limit: 10000,
-			name: 'images/[hash]-[name].[ext]'
-		} 
-	}
-};
-
 const cssFileName = 'style.css';
-
-const plugins = [
-	new ExtractTextPlugin(`public/${cssFileName}`),
-	new CopyWebpackPlugin([
-		{ from: './src/assets', to: 'public/assets' },
-	])
-];
 
 module.exports = [
 	{
@@ -62,10 +44,17 @@ module.exports = [
 			rules: [
 				jsRule,
 				scssRule,
-				urlRule
+				{
+					test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+					use: {
+						loader: 'url-loader?limit=10000&name=[name].[ext]'
+					}
+				}
 			]
 		},
-		plugins
+		plugins: [
+			new ExtractTextPlugin(cssFileName)
+		]
 	},
 	{
 		entry: path.resolve(__dirname + '/src/server'),
@@ -76,16 +65,26 @@ module.exports = [
 		},
 		externals: [nodeExternals()],
 		output: {
-			path: path.resolve(__dirname + '/build'),
-			filename: 'server.js'
+			path: path.resolve(__dirname + '/build/public'),
+			filename: '../server.js'
 		},
 		module: {
 			rules: [
 				jsRule,
 				scssRule,
-				urlRule
+				{
+					test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+					use: {
+						loader: 'url-loader?limit=10000&name=[name].[ext]'
+					}
+				}
 			]
 		},
-		plugins
+		plugins: [
+			new ExtractTextPlugin(`public/${cssFileName}`),
+			new CopyWebpackPlugin([
+				{ from: './src/assets', to: 'public' },
+			])
+		]
 	}
 ]
