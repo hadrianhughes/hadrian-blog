@@ -22,6 +22,7 @@ module.exports = (location, data) => {
   <html>
     <head>
       <link rel="stylesheet" type="text/css" href="/style.css" />
+      <meta name="viewport" content="initial-scale=1.0" />
     </head>
     <body>
       <div id="root">${body}</div>

@@ -1,0 +1,30 @@
+@function t-rem ($value) {
+  @if type-of($value) == 'list' {
+    $rems: ();
+
+    @each $item in $values {
+      $rems: append($rems, t-rem($value));
+    }
+  }
+  @else if type-of($value) == 'number' {
+    @return ($value / $base-font-size) * 1rem;
+  }
+}
+
+@mixin t-center ($axis: 'both') {
+  position: absolute;
+
+  @if $axis == 'horizontal' {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @else if $axis == 'vertical' {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @else {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

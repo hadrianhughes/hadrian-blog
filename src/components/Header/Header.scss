@@ -1,0 +1,18 @@
+@import '../../styles/settings.scss';
+@import '../../styles/tools.scss';
+
+$height: 72px;
+
+.root {
+  background: t-color(brand-green);
+  height: t-rem($height);
+  position: relative;
+}
+
+.title {
+  margin: 0;
+}
+
+.logo {
+  @include t-center;
+}

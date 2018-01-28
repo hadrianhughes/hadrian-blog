@@ -3,6 +3,7 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const jsRule = {
 	test: /\.js$/,
@@ -32,10 +33,23 @@ const scssRule = {
 
 const urlRule = {
 	test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-	loader: 'url-loader?limit=100000'
+	use: {
+		loader: 'url-loader',
+		options: { 
+			limit: 10000,
+			name: 'images/[hash]-[name].[ext]'
+		} 
+	}
 };
 
 const cssFileName = 'style.css';
+
+const plugins = [
+	new ExtractTextPlugin(`public/${cssFileName}`),
+	new CopyWebpackPlugin([
+		{ from: './src/assets', to: 'public/assets' },
+	])
+];
 
 module.exports = [
 	{
@@ -51,9 +65,7 @@ module.exports = [
 				urlRule
 			]
 		},
-		plugins: [
-			new ExtractTextPlugin(`public/${cssFileName}`)
-		]
+		plugins
 	},
 	{
 		entry: path.resolve(__dirname + '/src/server'),
@@ -74,8 +86,6 @@ module.exports = [
 				urlRule
 			]
 		},
-		plugins: [
-			new ExtractTextPlugin(`public/${cssFileName}`)
-		]
+		plugins
 	}
 ]
