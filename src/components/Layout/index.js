@@ -15,4 +15,12 @@ const Layout = ({ children }) => (
   </React.Fragment>
 );
 
+Layout.propTypes = {
+  children: PropTypes.node,
+};
+
+Layout.defaultProps = {
+  children: undefined,
+};
+
 export default Layout;

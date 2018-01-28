@@ -2,6 +2,7 @@
 @import '../../styles/tools.scss';
 
 $height: 72px;
+$buttonSize: $height / 2;
 
 .root {
   background: t-color(brand-green);
@@ -17,4 +18,22 @@ $height: 72px;
   @include t-center;
 
   height: 75%;
+}
+
+.btnMenu,
+.btnSearch {
+  @include t-center('vertical');
+
+  height: t-rem($buttonSize);
+  width: t-rem($buttonSize);
+}
+
+.btnMenu {
+  left: 0;
+  margin-left: calc((#{$height} - #{$buttonSize}) / 2);
+}
+
+.btnSearch {
+  margin-right: calc((#{$height} - #{$buttonSize}) / 2);
+  right: 0;
 }
