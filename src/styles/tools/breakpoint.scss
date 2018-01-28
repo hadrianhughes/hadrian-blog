@@ -1,0 +1,7 @@
+@mixin t-respond-to-min ($size) {
+  @media only screen and (min-width: map-get($breakpoints, $size)) { @content };
+}
+
+@mixin t-respond-to-max ($size) {
+  @media only screen and (max-width: map-get($breakpoints, $size)) { @content };
+}
