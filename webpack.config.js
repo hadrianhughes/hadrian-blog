@@ -21,6 +21,11 @@ const cssLoaderRule = {
 	}
 };
 
+const urlRule = {
+	test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+	loader: 'url-loader?limit=100000'
+};
+
 module.exports = [
 	{
 		entry: path.resolve(__dirname + '/src/App.js'),
@@ -43,7 +48,8 @@ module.exports = [
 							loader: 'sass-loader'
 						}
 					]
-				}
+				},
+				urlRule
 			]
 		}
 	},
@@ -74,7 +80,8 @@ module.exports = [
 							loader: 'sass-loader'
 						}
 					]
-				}
+				},
+				urlRule
 			]
 		}
 	}

@@ -33,7 +33,9 @@
     "webpack": "^3.10.0"
   },
   "devDependencies": {
+    "file-loader": "^1.1.6",
     "isomorphic-style-loader": "^4.0.0",
+    "url-loader": "^0.6.2",
     "webpack-node-externals": "^1.6.0"
   }
 }
