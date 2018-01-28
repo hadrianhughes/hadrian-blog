@@ -6,6 +6,7 @@ import Routes from './Routes';
 
 import './styles/grid.scss';
 import './styles/fonts.scss';
+import './styles/globals.scss';
 
 const App = ({ data }) => (
   <Layout>
