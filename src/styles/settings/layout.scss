@@ -1,1 +1,16 @@
 $base-font-size: 16px;
+
+$spacing: (
+  small: 5px,
+  medium: 10px,
+  large: 20px,
+  xlarge: 40px,
+);
+
+$layers: (
+  sub: -1,
+  initial: 0,
+  super: 1,
+  ultra: 2,
+  top: 3
+);

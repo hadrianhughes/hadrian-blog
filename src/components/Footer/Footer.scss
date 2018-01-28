@@ -1,0 +1,22 @@
+@import '../../styles/settings.scss';
+@import '../../styles/tools.scss';
+
+.root {
+  padding-top: t-spacing(xlarge, 2);
+}
+
+.body {
+  background: t-color(brand-green);
+  bottom: 0;
+  padding: t-spacing(large);
+  position: fixed;
+  width: 100%;
+  z-index: t-layer(sub);
+}
+
+.copyright {
+  color: t-color(white);
+  display: block;
+  font-family: t-font(body-bold);
+  text-align: center;
+}

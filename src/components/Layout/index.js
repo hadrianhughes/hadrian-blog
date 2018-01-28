@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import s from './Layout.scss';
 
 import '../../styles/grid.scss';
 
@@ -8,7 +10,7 @@ import Footer from '../Footer';
 const Layout = ({ children }) => (
   <React.Fragment>
     <Header />
-    <main>
+    <main className={s.main}>
     { children }
     </main>
     <Footer />

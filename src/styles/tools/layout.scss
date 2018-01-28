@@ -1,0 +1,7 @@
+@function t-spacing ($key, $multiplier: 1) {
+  @return map-get($spacing, $key) * $multiplier;
+}
+
+@function t-layer ($key) {
+  @return map-get($layers, $key);
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import s from './Post.scss';
 
 const Post = ({ body, image, title }) => (
@@ -12,9 +13,9 @@ const Post = ({ body, image, title }) => (
 );
 
 Post.propTypes = {
-  body: PropTypes.obj.isRequired,
-  image: PropTypes.obj.isRequired,
-  title: PropTypes.obj.isRequired,
+  body: PropTypes.object.isRequired,
+  image: PropTypes.object.isRequired,
+  title: PropTypes.object.isRequired,
 };
 
 export default Post;
