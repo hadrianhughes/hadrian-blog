@@ -2,6 +2,7 @@
 
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const jsRule = {
 	test: /\.js$/,
@@ -11,20 +12,30 @@ const jsRule = {
 	}]
 };
 
-const cssLoaderRule = {
-	loader: 'css-loader',
-	options: {
-		modules: true,
-		importLoaders: 1,
-		localIdentName: process.env.NODE_ENV === 'production' ? '[hash:base64:10]' : '[name]__[local]___[hash:base64:5]',
-		sourceMap: true
-	}
+const scssRule = {
+	test: /\.scss$/,
+	use: ExtractTextPlugin.extract([
+		{
+			loader: 'css-loader',
+			options: {
+				modules: true,
+				importLoaders: 1,
+				localIdentName: process.env.NODE_ENV === 'production' ? '[hash:base64:10]' : '[name]__[local]___[hash:base64:5]',
+				sourceMap: true
+			}
+		},
+		{
+			loader: 'sass-loader'
+		}
+	])
 };
 
 const urlRule = {
 	test: /\.(png|woff|woff2|eot|ttf|svg)$/,
 	loader: 'url-loader?limit=100000'
 };
+
+const cssFileName = 'style.css';
 
 module.exports = [
 	{
@@ -36,22 +47,13 @@ module.exports = [
 		module: {
 			rules: [
 				jsRule,
-				{
-					test: /\.scss$/,
-					exclude: /node_modules/,
-					use: [
-						{
-							loader: 'style-loader'
-						},
-						cssLoaderRule,
-						{
-							loader: 'sass-loader'
-						}
-					]
-				},
+				scssRule,
 				urlRule
 			]
-		}
+		},
+		plugins: [
+			new ExtractTextPlugin(`public/${cssFileName}`)
+		]
 	},
 	{
 		entry: path.resolve(__dirname + '/src/server'),
@@ -68,21 +70,12 @@ module.exports = [
 		module: {
 			rules: [
 				jsRule,
-				{
-					test: /\.scss$/,
-					exclude: /node_modules/,
-					use: [
-						{
-							loader: 'isomorphic-style-loader'
-						},
-						cssLoaderRule,
-						{
-							loader: 'sass-loader'
-						}
-					]
-				},
+				scssRule,
 				urlRule
 			]
-		}
+		},
+		plugins: [
+			new ExtractTextPlugin(`public/${cssFileName}`)
+		]
 	}
 ]

@@ -7,8 +7,6 @@ const Layout = require('../../components/Layout').default;
 const Routes = require('../../Routes').default;
 
 module.exports = (location, data) => {
-  const css = new Set();
-  const context = { insertCss: (...styles) => styles.forEach(style => css.add(style._getCss()))};
   const body = (
     renderToString(
       <StaticRouter
@@ -23,7 +21,7 @@ module.exports = (location, data) => {
   return `<!DOCTYPE html>
   <html>
     <head>
-      <style type="text/css">${[...css].join('')}</style>
+      <link rel="stylesheet" type="text/css" href="/style.css" />
     </head>
     <body>
       <div id="root">${body}</div>
