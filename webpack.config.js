@@ -35,7 +35,7 @@ const cssFileName = 'style.css';
 
 module.exports = [
 	{
-		entry: path.resolve(__dirname + '/src/App.js'),
+		entry: path.resolve(__dirname + '/src/index.js'),
 		output: {
 			path: path.resolve(__dirname + '/build/public'),
 			filename: 'bundle.js'
@@ -81,9 +81,9 @@ module.exports = [
 			]
 		},
 		plugins: [
-			new ExtractTextPlugin(`public/${cssFileName}`),
+			new ExtractTextPlugin(cssFileName),
 			new CopyWebpackPlugin([
-				{ from: './src/assets', to: 'public' },
+				{ from: './src/assets' },
 			])
 		]
 	}

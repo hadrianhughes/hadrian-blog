@@ -19,14 +19,15 @@ module.exports = (location, data) => {
   );
 
   return `<!DOCTYPE html>
-  <html>
+  <html lang="en">
     <head>
       <link rel="stylesheet" type="text/css" href="/style.css" />
       <meta name="viewport" content="initial-scale=1.0" />
     </head>
     <body>
       <div id="root">${body}</div>
-      <script src="/bundle.js"></script>
+      <script>window.__INITIAL__ = ${JSON.stringify(data)}</script>
+      <script type="text/javascript" src="/bundle.js"></script>
     </body>
   </html>
   `

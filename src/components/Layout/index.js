@@ -4,7 +4,7 @@ import s from './Layout.scss';
 
 import '../../styles/grid.scss';
 
-import Header from '../Header';
+import Header from '../../containers/Header';
 import Footer from '../Footer';
 
 const Layout = ({ children }) => (
