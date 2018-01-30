@@ -5,6 +5,11 @@ export default (state = { menuOpen: false }, action) => {
         ...state,
         menuOpen: !state.menuOpen
       };
+    case 'CLOSE_OVERLAYS':
+      return {
+        ...state,
+        menuOpen: false
+      };
     default:
       return state;
   }

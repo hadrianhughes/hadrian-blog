@@ -4,20 +4,25 @@ import s from './Header.scss';
 import svgLogo from '../../assets/logo.svg';
 
 import Icon from '../Icon';
+import Overlay from '../Overlay';
 
-const Header = ({ menuOpen, searchOpen, onToggleMenu, onToggleSearch }) => (
+const Header = ({ menuOpen, searchOpen, onClickMenu, onClickSearch }) => (
   <header className={s.root}>
-    { menuOpen ? 'MENU' : null }
-    { searchOpen ? 'SEARCH' : null }
     <h1 className={s.title}>
       <img className={s.logo} src={svgLogo} alt="Hadrian Hughes Blog" />
     </h1>
     <div className={s.btnMenu}>
-      <Icon ariaLabel="Menu" onClick={onToggleMenu} variant="hamburger" />
+      <Icon ariaLabel="Menu" onClick={onClickMenu} variant="hamburger" topLayer />
     </div>
     <div className={s.btnSearch}>
-      <Icon ariaLabel="Search" onClick={onToggleSearch} variant="search" />
+      <Icon ariaLabel="Search" onClick={onClickSearch} variant="search" topLayer />
     </div>
+    <Overlay visible={menuOpen}>
+      {'MENU'}
+    </Overlay>
+    <Overlay visible={searchOpen}>
+      {'SEARCH'}
+    </Overlay>
   </header>
 );
 

@@ -5,6 +5,11 @@ export default (state = { searchOpen: false }, action) => {
         ...state,
         searchOpen: !state.searchOpen
       };
+    case 'CLOSE_OVERLAYS':
+      return {
+        ...state,
+        searchOpen: false
+      };
     default:
       return state;
   }
