@@ -4,3 +4,9 @@
 .body {
   word-break: break-all;
 }
+
+.heading {
+  font-family: t-font(heading);
+  font-size: t-font-size(large);
+  margin: t-spacing(medium) 0;
+}

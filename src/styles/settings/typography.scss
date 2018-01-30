@@ -1,6 +1,14 @@
+$base-font-size: 16px;
+
 $fonts: (
   body: 'DroidSerif-Regular',
   body-bold: 'DroidSerif-Bold',
   body-italic: 'DroidSerif-Italic',
-  body-bolditalic: 'DroidSerif-BoldItalic'
+  body-bolditalic: 'DroidSerif-BoldItalic',
+  heading: 'Roboto-Regular',
+);
+
+$font-sizes: (
+  medium: $base-font-size,
+  large: $base-font-size * 2,
 );

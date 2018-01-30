@@ -4,8 +4,8 @@ import s from './Post.scss';
 
 const Post = ({ body, image, title }) => (
   <React.Fragment>
-    <h2>{title.value}</h2>
-    <img src={image.value.main.url} alt={image.value.main.alt} />
+    <img src="http://placecage.com/1200/500" alt={image.value.main.alt} />
+    <h2 className={s.heading}>{title.value}</h2>
     <p className={s.body}>
       {JSON.stringify(body)}
     </p>
