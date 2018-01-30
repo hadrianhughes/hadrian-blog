@@ -3,4 +3,9 @@
 
 .main {
   background: t-color(white);
+
+  @include t-respond-to-min(small) {
+    padding: t-spacing(large);
+    padding-bottom: t-spacing(xlarge, 2);
+  }
 }
