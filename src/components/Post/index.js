@@ -4,7 +4,7 @@ import s from './Post.scss';
 
 const Post = ({ body, image, title }) => (
   <React.Fragment>
-    <img src="http://placecage.com/1200/500" alt={image.value.main.alt} />
+    <img src="http://placecage.com/1200/300" alt={image.value.main.alt} className={s.image} />
     <div className="row">
       <div className="column small-12">
         <h2 className={s.heading}>{title.value}</h2>
