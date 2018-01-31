@@ -2,12 +2,12 @@
     "id": "WmO63ScAAC1K_lXQ",
     "uid": "hello-world",
     "type": "post",
-    "href": "https://hadrian-blog.prismic.io/api/v1/documents/search?ref=Wme8rScAABhxD_Tw&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WmO63ScAAC1K_lXQ%22%29+%5D%5D",
+    "href": "https://hadrian-blog.prismic.io/api/v1/documents/search?ref=WnJKxCQAAGAF-Dep&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WmO63ScAAC1K_lXQ%22%29+%5D%5D",
     "tags": [
         "test"
     ],
     "first_publication_date": "2018-01-20T22:45:21+0000",
-    "last_publication_date": "2018-01-23T22:52:29+0000",
+    "last_publication_date": "2018-01-31T23:01:24+0000",
     "slugs": [
         "section-1",
         "hello-world"
@@ -111,6 +111,21 @@
                     {
                         "type": "list-item",
                         "text": "Item2",
+                        "spans": []
+                    },
+                    {
+                        "type": "o-list-item",
+                        "text": "Item1",
+                        "spans": []
+                    },
+                    {
+                        "type": "o-list-item",
+                        "text": "Item2",
+                        "spans": []
+                    },
+                    {
+                        "type": "preformatted",
+                        "text": "Something preformatted",
                         "spans": []
                     },
                     {
