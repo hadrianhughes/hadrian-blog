@@ -44,7 +44,7 @@ class ParagraphContainer extends React.Component {
     const nodes = this.parseNodes();
 
     return (
-      <Paragraph text={nodes} />
+      <Paragraph html={nodes} />
     );
   }
 }
