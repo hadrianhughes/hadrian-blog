@@ -1,11 +1,18 @@
+@import 'settings.scss';
+@import 'tools.scss';
+
 :global {
   html, body {
-    font-family: 'DroidSerif-Regular';
-    font-size: 16px;
+    font-family: t-font(body);
+    font-size: t-font-size(xsmall);
     font-weight: normal;
   }
 
   p, span {
     font-size: 16px;
+  }
+
+  a {
+    color: t-color(black);
   }
 }
