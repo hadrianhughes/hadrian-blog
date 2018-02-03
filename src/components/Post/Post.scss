@@ -5,16 +5,6 @@
   word-break: break-all;
 }
 
-.heading {
-  font-family: t-font(heading);
-  font-size: t-font-size(xlarge);
-  margin: t-spacing(large) 0 t-spacing(medium);
-
-  @include t-respond-to-min(small) {
-    margin: t-spacing(xlarge) 0 t-spacing(medium, 3);
-  }
-}
-
 .image {
   width: 100%;
 }

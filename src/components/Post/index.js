@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import s from './Post.scss';
 
+import Heading from '../Heading';
 import FormattedText from '../FormattedText';
 
 const Post = ({ body, image, title }) => (
   <React.Fragment>
-    <img src="http://placecage.com/1200/300" alt={image.value.main.alt} className={s.image} />
+    <img src="http://placecage.com/1200/600" alt={image.value.main.alt} className={s.image} />
     <div className="row">
       <div className="column small-12">
-        <h2 className={s.heading}>{title.value}</h2>
+        <Heading size={2}>{title.value}</Heading>
         <FormattedText content={body} />
       </div>
     </div>

@@ -7,16 +7,30 @@
 
 .h2 {
   font-size: t-font-size(xlarge);
+  margin: t-spacing(large) 0 t-spacing(medium);
+
+  @include t-respond-to-min(small) {
+    font-size: t-font-size(title);
+    margin: t-spacing(medium, 3) 0 t-spacing(medium);
+  }
 }
 
 .h3 {
   font-size: t-font-size(large);
+
+  @include t-respond-to-min(small) {
+    font-size: t-font-size(xlarge);
+  }
 }
 
 .h4, .h5, .h6 {
   font-size: t-font-size(medium);
+
+  @include t-respond-to-min(medium) {
+    font-size: t-font-size(large);
+  }
 }
 
 .h3, .h4, .h5, .h6 {
-  margin-bottom: t-spacing(medium);
+  margin: t-spacing(medium) 0 t-spacing(small);
 }

@@ -12,7 +12,7 @@ const FormattedText = ({ content }) => (
           <Paragraph text={item.text} spans={item.spans} key={i} />
         :
         item.type.includes('heading') ?
-          <Heading size={parseInt(item.type.match(/\d+$/)[0])} text={item.text} key={i} />
+          <Heading size={parseInt(item.type.match(/\d+$/)[0])} key={i}>{item.text}</Heading>
         :
         ''
       ))
