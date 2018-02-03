@@ -9,6 +9,8 @@ $fonts: (
 );
 
 $font-sizes: (
-  medium: $base-font-size,
+  small: $base-font-size,
+  medium: $base-font-size * 1.5,
   large: $base-font-size * 2,
+  xlarge: $base-font-size * 3,
 );
