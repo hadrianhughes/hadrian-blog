@@ -5,7 +5,6 @@
   background: t-color(white);
 
   @include t-respond-to-min(small) {
-    padding: t-spacing(medium);
     padding-bottom: t-spacing(xlarge, 2);
   }
 }

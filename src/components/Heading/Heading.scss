@@ -16,3 +16,7 @@
 .h4, .h5, .h6 {
   font-size: t-font-size(medium);
 }
+
+.h3, .h4, .h5, .h6 {
+  margin-bottom: t-spacing(medium);
+}

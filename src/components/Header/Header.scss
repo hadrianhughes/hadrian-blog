@@ -5,7 +5,7 @@ $height: 72px;
 $buttonSize: $height / 3;
 
 .root {
-  background: t-color(brand-green);
+  background: t-color(brand);
   height: t-rem($height);
   position: relative;
   z-index: t-layer(top);
