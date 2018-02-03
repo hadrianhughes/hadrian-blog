@@ -32,7 +32,7 @@ class ParagraphContainer extends React.Component {
   selectElement (type) {
     switch (type) {
       case 'strong':
-        return 'a';
+        return 'strong';
       case 'em':
         return 'em';
       case 'hyperlink':
