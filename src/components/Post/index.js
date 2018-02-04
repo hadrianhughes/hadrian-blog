@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import s from './Post.scss';
 
 import Heading from '../Heading';
-import FormattedText from '../FormattedText';
+import FormattedText from '../../containers/FormattedText';
 
 const Post = ({ body, image, title }) => (
   <React.Fragment>
