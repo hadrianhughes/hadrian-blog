@@ -1,20 +1,21 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Layout from './components/Layout';
-import Post from './components/Post';
+import Page from './containers/Page';
+import Post from './containers/Post';
+import Home from './containers/Home';
 
 const Routes = ({ data }) => (
   <Switch>
     <Route exact path="/" render={props => (
-      <div>HOME</div>
+      <Page data={data}>
+        <Home />
+      </Page>
     )} />
     <Route path="/post/:postUid" render={props => (
-      <Post
-        title={data.data.post.title}
-        image={data.data.post.image}
-        body={data.data.post.body}
-      />
+      <Page data={data}>
+        <Post />
+      </Page>
     )} />
     <Route path="/about" render={props => (
       <div>ABOUT</div>

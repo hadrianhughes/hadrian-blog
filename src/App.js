@@ -19,6 +19,6 @@ const App = ({ data }) => (
       <Routes data={data} />
     </Layout>
   </Provider>
-)
+);
 
 export default App;

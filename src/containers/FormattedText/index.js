@@ -13,22 +13,24 @@ class FormattedTextContainer extends React.Component {
     let result = [];
     let list = [];
 
-    for (let i = 0;i < content.value.length;i++) {
-      const item = content.value[i];
+    if (content.value) {
+      for (let i = 0;i < content.value.length;i++) {
+        const item = content.value[i];
 
-      if (item.type === 'list-item' || item.type === 'o-list-item') {
-        list.push(item);
+        if (item.type === 'list-item' || item.type === 'o-list-item') {
+          list.push(item);
 
-        if (content.value[i + 1].type !== item.type) {
-          result.push({
-            type: item.type === 'list-item' ? 'u-list' : 'o-list',
-            items: list,
-          });
+          if (content.value[i + 1].type !== item.type) {
+            result.push({
+              type: item.type === 'list-item' ? 'u-list' : 'o-list',
+              items: list,
+            });
 
-          list = [];
+            list = [];
+          }
+        } else {
+          result.push(item);
         }
-      } else {
-        result.push(item);
       }
     }
 
