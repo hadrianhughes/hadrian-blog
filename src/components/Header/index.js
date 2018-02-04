@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import s from './Header.scss';
 
 import svgLogo from '../../assets/logo.svg';
@@ -8,9 +10,11 @@ import Overlay from '../Overlay';
 
 const Header = ({ menuOpen, searchOpen, onClickMenu, onClickSearch }) => (
   <header className={s.root}>
-    <h1 className={s.title}>
-      <img className={s.logo} src={svgLogo} alt="Hadrian Hughes Blog" />
-    </h1>
+    <Link to="/">
+      <h1 className={s.title}>
+        <img className={s.logo} src={svgLogo} alt="Hadrian Hughes Blog" />
+      </h1>
+    </Link>
     <div className={s.btnMenu}>
       <Icon ariaLabel="Menu" onClick={onClickMenu} variant="hamburger" topLayer />
     </div>

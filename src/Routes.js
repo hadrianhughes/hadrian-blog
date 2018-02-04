@@ -6,11 +6,9 @@ import Post from './components/Post';
 
 const Routes = ({ data }) => (
   <Switch>
-    <Route exact path="/" render={props => {
-      /*
-        render home page
-      */
-    }} />
+    <Route exact path="/" render={props => (
+      <div>HOME</div>
+    )} />
     <Route path="/post/:postUid" render={props => (
       <Post
         title={data.data.post.title}
@@ -18,16 +16,12 @@ const Routes = ({ data }) => (
         body={data.data.post.body}
       />
     )} />
-    <Route path="/about" render={props => {
-      /*
-        render about page
-      */
-    }} />
-    <Route path="/search/:terms" render={props => {
-      /*
-        render post list
-      */
-    }}
+    <Route path="/about" render={props => (
+      <div>ABOUT</div>
+    )} />
+    <Route path="/search/:terms" render={props => (
+      <div>SEARCH</div>
+    )}
     />
   </Switch>
 );
