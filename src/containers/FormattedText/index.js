@@ -25,7 +25,6 @@ class FormattedTextContainer extends React.Component {
               type: item.type === 'list-item' ? 'u-list' : 'o-list',
               items: list,
             });
-
             list = [];
           }
         } else {
