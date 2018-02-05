@@ -16,15 +16,17 @@ app.use('/api', routes);
 
 app.get('*', (req, res) => {
   request(`http://localhost:${PORT}/api${req.path}`, (err, response, body) => {
-    if (response.statusCode === 200) {
-      res.status(200);
-      res.send(render(req.path, JSON.parse(body)));
-      log.info({ status: 200, params: req.params }, 'Rendered page - responded with 200');
-    } else {
-      res.status(404);
-      res.end();
-      log.info({ status: 404 }, 'Failed to render - responded with 404');
+    res.status(response.statusCode);
+
+    let data;
+    try {
+      data = JSON.parse(body);
+    } catch (ex) {
+      log.error({ err: ex });
     }
+
+    res.send(render(req.path, data));
+    log.info({ status: response.statusCode, params: req.params }, `Rendered page - responded with ${response.statusCode}`);
   });
 });
 

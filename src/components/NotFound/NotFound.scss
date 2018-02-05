@@ -1,0 +1,13 @@
+@import '../../styles/settings.scss';
+@import '../../styles/tools.scss';
+
+.root {
+  @include t-center(vertical);
+
+  width: 100%;
+}
+
+.backText {
+  margin-top: t-spacing(large);
+  text-align: center;
+}

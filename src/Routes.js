@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Page from './containers/Page';
 import Post from './containers/Post';
+import NotFound from './components/NotFound';
 import Home from './containers/Home';
 
 const Routes = ({ data }) => (
@@ -22,8 +23,10 @@ const Routes = ({ data }) => (
     )} />
     <Route path="/search/:terms" render={props => (
       <div>SEARCH</div>
-    )}
-    />
+    )} />
+    <Route path="*" render={props => (
+      <NotFound />
+    )} />
   </Switch>
 );
 
