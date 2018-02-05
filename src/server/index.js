@@ -1,43 +1,31 @@
 require('dotenv').config();
 const express = require('express');
-const app = express();
 const path = require('path');
+const request = require('request');
 
-const render = require('./lib/render');
 const log = require('./lib/log');
+const render = require('./lib/render');
+const routes = require('./routes');
 
+const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, '/public')));
 
-app.get('/', (req, res) => {
-  res.status(200);
-  res.send(render('/', require('../../__mock-data__/post-list.json')));
-  log.info({ route: '/', status: 200 }, 'Responded with 200');
-});
-
-app.get('/post/:uid', (req, res) => {
-  res.status(200);
-  res.send(render(req.url, require('../../__mock-data__/post.json')));
-  log.info({ route: 'post', status: 200, params: req.params }, 'Responded with 200');
-});
-
-app.get('/about', (req, res) => {
-  res.status(200);
-  res.send(render('/about', require('../../__mock-data__/about.json')));
-  log.info({ route: 'about', status: 200 }, 'Responded with 200');
-});
-
-app.get('/search/:terms', (req, res) => {
-  res.status(200);
-  res.send(render(req.url, require('../../__mock-data__/post-list.json')));
-  log.info({ route: 'search', status: 200, params: req.params }, 'Responded with 200');
-});
+app.use('/api', routes);
 
 app.get('*', (req, res) => {
-  res.status(404);
-  res.end();
-  log.info({ route: 'NOT FOUND', status: 404 }, 'Responded with 404');
+  request(`http://localhost:${PORT}/api${req.path}`, (err, response, body) => {
+    if (response.statusCode === 200) {
+      res.status(200);
+      res.send(render(req.path, JSON.parse(body)));
+      log.info({ status: 200, params: req.params }, 'Rendered page - responded with 200');
+    } else {
+      res.status(404);
+      res.end();
+      log.info({ status: 404 }, 'Failed to render - responded with 404');
+    }
+  });
 });
 
 app.listen(PORT, (err) => {

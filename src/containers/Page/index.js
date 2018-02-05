@@ -31,7 +31,16 @@ class PageContainer extends React.Component {
 
   fetchData () {
     if (this.state.initialStale) {
-      console.log('fetch data');
+      const { host, pathname } = location;
+      fetch(`//${host}/api${pathname}`)
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          this.setState({
+            data
+          });
+        });
     }
   }
 

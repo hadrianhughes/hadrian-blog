@@ -4,7 +4,6 @@ const { StaticRouter } = require('react-router-dom');
 
 const App = require('../../App').default;
 const Layout = require('../../components/Layout').default;
-const Routes = require('../../Routes').default;
 
 module.exports = (location, data) => {
   const body = (
