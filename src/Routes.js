@@ -9,12 +9,12 @@ import Home from './containers/Home';
 const Routes = ({ data }) => (
   <Switch>
     <Route exact path="/" render={props => (
-      <Page data={data}>
+      <Page data={data} history={props.history}>
         <Home />
       </Page>
     )} />
     <Route path="/post/:postUid" render={props => (
-      <Page data={data}>
+      <Page data={data} history={props.history}>
         <Post />
       </Page>
     )} />

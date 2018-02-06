@@ -22,33 +22,34 @@ class PageContainer extends React.Component {
     this.fetchData = this.fetchData.bind(this);
   }
 
-  componentWillReceiveProps () {
-    this.setState({
-      data: undefined,
-      initialStale: true,
+  componentDidMount () {
+    this.unlisten = this.props.history.listen((location, action) => {
+      this.fetchData();
     });
   }
 
+  componentWillUnmount () {
+    this.unlisten();
+  }
+
   fetchData () {
-    if (this.state.initialStale) {
-      const { host, pathname } = location;
-      fetch(`//${host}/api${pathname}`)
-        .then(response => {
-          return response.json();
-        })
-        .then(data => {
-          this.setState({
-            data
-          });
+    const { host, pathname } = location;
+    fetch(`//${host}/api${pathname}`)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.setState({
+          data
         });
-    }
+      });
   }
 
   render () {
     return (
       <React.Fragment>
         {
-          React.cloneElement(this.props.children, { data: this.state.data, triggerFetch: this.fetchData })
+          React.cloneElement(this.props.children, { data: this.state.data })
         }
       </React.Fragment>
     )

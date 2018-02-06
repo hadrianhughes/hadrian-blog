@@ -2,20 +2,27 @@ const React = require('react');
 const { renderToString } = require('react-dom/server');
 const { StaticRouter } = require('react-router-dom');
 
+const log = require('./log');
+
 const App = require('../../App').default;
 const Layout = require('../../components/Layout').default;
 
 module.exports = (location, data) => {
-  const body = (
-    renderToString(
-      <StaticRouter
-        location={location}
-        context={{}}
-      >
-        <App data={data} />
-      </StaticRouter>
-    )
-  );
+  let body;
+  try {
+    body = (
+      renderToString(
+        <StaticRouter
+          location={location}
+          context={{}}
+        >
+          <App data={data} />
+        </StaticRouter>
+      )
+    );
+  } catch (err) {
+    log.error({ err: err.stack });
+  }
 
   return `<!DOCTYPE html>
   <html lang="en">
