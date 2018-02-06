@@ -8,12 +8,4 @@ const Home = () => (
   </div>
 );
 
-Home.propTypes = {
-  data: PropTypes.object,
-};
-
-Home.defaultProps = {
-  data: undefined,
-};
-
 export default Home;

@@ -30,4 +30,18 @@ const Header = ({ menuOpen, searchOpen, onClickMenu, onClickSearch }) => (
   </header>
 );
 
+Header.propTypes = {
+  menuOpen: PropTypes.bool,
+  searchOpen: PropTypes.bool,
+  onClickMenu: PropTypes.func,
+  onClickSearch: PropTypes.func,
+};
+
+Header.defaultProps = {
+  menuOpen: false,
+  searchOpen: false,
+  onClickMenu: () => {},
+  onClickSearch: () => {},
+};
+
 export default Header;

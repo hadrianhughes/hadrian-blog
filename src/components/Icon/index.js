@@ -18,7 +18,7 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-  onClick: () => {}
+  onClick: () => {},
 };
 
 export default Icon;
