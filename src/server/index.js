@@ -22,7 +22,7 @@ app.get('*', (req, res) => {
     try {
       data = JSON.parse(body);
     } catch (ex) {
-      log.error({ err: ex });
+      log.error({ err: ex.stack });
     }
 
     res.send(render(req.path, data));
