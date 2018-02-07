@@ -1,6 +1,7 @@
 const express = require('express');
 
 const log = require('./lib/log');
+const request = require('./lib/request');
 
 const router = express.Router();
 
@@ -11,9 +12,17 @@ router.get('/', (req, res) => {
 });
 
 router.get('/post/:uid', (req, res) => {
-  res.status(200);
-  res.send(require('../../__mock-data__/post.json'));
-  log.info({ route: '/post', status: 200, params: req.params }, 'Responded with 200');
+  request(`${process.env.CONTENT_ENDPOINT}/uid/post/${req.params.uid}`)
+    .then(result => {
+      res.status(200);
+      res.send(result);
+      log.info({ route: '/post', status: 200, params: req.params }, 'Responded with 200');
+    })
+    .catch(err => {
+      res.status(500);
+      res.end();
+      log.error({ err: err.stack });
+    });
 });
 
 router.get('/about', (req, res) => {

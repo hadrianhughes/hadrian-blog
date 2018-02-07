@@ -30,7 +30,7 @@ app.get('*', (req, res) => {
   });
 });
 
-app.listen(PORT, (err) => {
+app.listen(PORT, err => {
   if (err) throw err;
 
   log.info({ port: PORT }, 'Started listening for requests');
