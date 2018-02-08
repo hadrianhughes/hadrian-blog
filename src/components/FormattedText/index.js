@@ -19,6 +19,12 @@ const FormattedText = ({ content }) => (
         item.type === 'u-list' || item.type === 'o-list' ?
           <List items={item.items} ordered={item.type === 'o-list'} key={i} />
         :
+        item.type === 'image' ?
+          <img src={item.url} alt={item.alt} width={item.dimensions.width} height={item.dimensions.height} key={i} />
+        :
+        item.type === 'video' ?
+          <iframe src={item.url} width={item.dimensions.width} height={item.dimensions.height} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen key={i} />
+        :
         ''
       ))
     }

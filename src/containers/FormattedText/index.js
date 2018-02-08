@@ -17,18 +17,35 @@ class FormattedTextContainer extends React.Component {
       for (let i = 0;i < content.value.length;i++) {
         const item = content.value[i];
 
-        if (item.type === 'list-item' || item.type === 'o-list-item') {
-          list.push(item);
+        switch (item.type) {
+          case 'list-item' || 'o-list-item':
+            list.push(item);
 
-          if (content.value[i + 1].type !== item.type) {
-            result.push({
-              type: item.type === 'list-item' ? 'u-list' : 'o-list',
-              items: list,
-            });
-            list = [];
-          }
-        } else {
-          result.push(item);
+            if (content.value[i + 1].type !== item.type) {
+              result.push({
+                type: item.type === 'list-item' ? 'u-list' : 'o-list',
+                items: list,
+              });
+              list = [];
+            }
+            break;
+          case 'embed':
+            if (item.oembed.type === 'video') {
+              const ytId = item.oembed.embed_url.match(/watch\?v=(.+?)(&.*)?$/)[1];
+              result.push({
+                type: 'video',
+                url: `http://www.youtube.com/embed/${ytId}`,
+                dimensions: {
+                  width: item.oembed.width,
+                  height: item.oembed.height,
+                }
+              });
+            } else {
+              result.push(item);
+            }
+            break;
+          default:
+            result.push(item);
         }
       }
     }
