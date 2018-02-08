@@ -7,8 +7,11 @@ services:
       - '80:80'
     environment:
       PORT: 80
-      NODE_ENV: production
+      NODE_ENV: development
       CONTENT_ENDPOINT: http://content-service:3000
+    volumes:
+      - ./src:/usr/src/app/src
+    entrypoint: npm run dev
   content-service:
     container_name: content-service
     build: ../content-service
@@ -16,4 +19,4 @@ services:
       - '3000:3000'
     environment:
       PORT: 3000
-      NODE_ENV: production
+      NODE_ENV: development

@@ -35,13 +35,13 @@ router.get('/post/:uid', (req, res) => {
 
 router.get('/about', (req, res) => {
   res.status(200);
-  res.send(require('../../__mock-data__/about.json'));
+  res.send({});
   log.info({ route: '/about', status: 200 }, 'Responded with 200');
 });
 
 router.get('/search/:terms', (req, res) => {
   res.status(200);
-  res.send(require('../../__mock-data__/post-list.json'));
+  res.send({});
   log.info({ route: '/search', status: 200, params: req.params }, 'Responded with 200');
 });
 
