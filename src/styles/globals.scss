@@ -6,6 +6,7 @@
     font-family: t-font(body);
     font-size: t-font-size(xsmall);
     font-weight: normal;
+    overflow-x: hidden;
   }
 
   p, span {
@@ -14,5 +15,9 @@
 
   a {
     color: t-color(black);
+  }
+
+  iframe, img {
+    max-width: 100%;
   }
 }

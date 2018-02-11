@@ -1,0 +1,38 @@
+@import '../../styles/settings.scss';
+@import '../../styles/tools.scss';
+
+.root {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.listItem {
+  display: block;
+  padding: t-spacing(medium) t-spacing(medium) 0;
+}
+
+.article {
+  border-bottom: 1px solid t-color(light-grey);
+}
+
+a {
+  text-decoration: none;
+
+  &:active h3 {
+    color: t-color(grey);
+  }
+}
+
+.intro {
+  p {
+    margin: 0 0 t-spacing(medium);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @include t-respond-to-min(small) {
+      margin: t-spacing(medium) 0 t-spacing(large);
+    }
+  }
+}

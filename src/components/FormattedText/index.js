@@ -6,8 +6,8 @@ import parseSpans from '../../helpers/parseSpans';
 import Heading from '../Heading';
 import List from '../List';
 
-const FormattedText = ({ content }) => (
-  <div>
+const FormattedText = ({ content, className }) => (
+  <div className={className}>
     {
       content.map((item, i) => (
         item.type === 'paragraph' ?
@@ -33,6 +33,11 @@ const FormattedText = ({ content }) => (
 
 FormattedText.propTypes = {
   content: PropTypes.array.isRequired,
+  className: PropTypes.string,
+};
+
+FormattedText.defaultProps = {
+  className: '',
 };
 
 export default FormattedText;

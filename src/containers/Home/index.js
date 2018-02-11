@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Home from '../../components/Home';
+import PostList from '../../components/PostList';
 
 class HomeContainer extends React.Component {
   static propTypes = {
@@ -13,9 +13,9 @@ class HomeContainer extends React.Component {
   };
 
   render () {
-    return (
-      <Home data={this.props.data} />
-    );
+    const { results } = this.props.data;
+
+    return results ? <PostList posts={this.props.data.results} /> : null;
   }
 }
 
