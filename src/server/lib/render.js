@@ -16,7 +16,9 @@ module.exports = (location, data) => {
           location={location}
           context={{}}
         >
-          <App data={data} />
+          <App
+            data={data}
+          />
         </StaticRouter>
       )
     );

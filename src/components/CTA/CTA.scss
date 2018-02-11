@@ -1,0 +1,13 @@
+@import '../../styles/settings.scss';
+@import '../../styles/tools.scss';
+
+.root {
+  background: t-color(brand);
+  border: 0;
+  border-radius: 5px;
+  color: t-color(white);
+  display: inline-block;
+  font-family: t-font(other);
+  font-size: t-font-size(xsmall);
+  padding: t-spacing(large) t-spacing(xlarge);
+}

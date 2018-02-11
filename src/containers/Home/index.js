@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import PostList from '../../components/PostList';
+import PostList from '../../containers/PostList';
 
 class HomeContainer extends React.Component {
   static propTypes = {
@@ -14,8 +14,14 @@ class HomeContainer extends React.Component {
 
   render () {
     const { results } = this.props.data;
+    const noMore = this.props.data.results_per_page > this.props.data.results_size;
 
-    return results ? <PostList posts={this.props.data.results} /> : null;
+    return results ? (
+      <PostList
+        posts={results}
+        noMore={noMore}
+      />
+     ) : null;
   }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { toggleMenu, toggleSearch, closeOverlays } from '../../actions';
@@ -6,6 +7,19 @@ import { toggleMenu, toggleSearch, closeOverlays } from '../../actions';
 import Header from '../../components/Header';
 
 class HeaderContainer extends React.Component {
+  static propTypes = {
+    menuOpen: PropTypes.bool,
+    searchOpen: PropTypes.bool,
+    onOpenMenu: PropTypes.func.isRequired,
+    onOpenSearch: PropTypes.func.isRequired,
+    onCloseOverlay: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    menuOpen: false,
+    searchOpen: false,
+  };
+
   constructor (props) {
     super(props);
 
@@ -34,8 +48,8 @@ class HeaderContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  menuOpen: state.toggleMenu.menuOpen,
-  searchOpen: state.toggleSearch.searchOpen,
+  menuOpen: state.toggleMenu,
+  searchOpen: state.toggleSearch,
 });
 
 const mapDispatchToProps = dispatch => ({

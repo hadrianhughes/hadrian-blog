@@ -21,4 +21,12 @@ const App = ({ data }) => (
   </Provider>
 );
 
+App.propTypes = {
+  data: PropTypes.object,
+};
+
+App.defaultProps = {
+  data: {},
+};
+
 export default App;

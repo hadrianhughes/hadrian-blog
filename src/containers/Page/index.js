@@ -6,6 +6,7 @@ import closeOverlays from '../../actions/closeOverlays';
 class PageContainer extends React.Component {
   static propTypes = {
     data: PropTypes.object,
+    closeOverlays: PropTypes.func.isRequired,
   };
 
   static defaultProps = {

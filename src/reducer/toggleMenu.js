@@ -1,15 +1,9 @@
-export default (state = { menuOpen: false }, action) => {
+export default (state = false, action) => {
   switch (action.type) {
     case 'TOGGLE_MENU':
-      return {
-        ...state,
-        menuOpen: !state.menuOpen
-      };
+      return !state;
     case 'CLOSE_OVERLAYS':
-      return {
-        ...state,
-        menuOpen: false
-      };
+      return false;
     default:
       return state;
   }

@@ -5,6 +5,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+  padding-bottom: t-spacing(large);
 }
 
 .listItem {
@@ -35,4 +36,9 @@ a {
       margin: t-spacing(medium) 0 t-spacing(large);
     }
   }
+}
+
+.buttonContainer {
+  padding: t-spacing(medium, 3);
+  text-align: center;
 }

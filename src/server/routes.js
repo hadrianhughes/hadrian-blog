@@ -45,6 +45,21 @@ router.get('/search/:terms', (req, res) => {
   log.info({ route: '/search', status: 200, params: req.params }, 'Responded with 200');
 });
 
+router.get('/posts/:page?', (req, res) => {
+  const page = req.params.page || 1;
+  request(`${process.env.CONTENT_ENDPOINT}/type/post/${page}`)
+    .then(result => {
+      res.status(200);
+      res.send(result);
+      log.info({ route: '/posts', status: 200, params: req.params }, 'Responded with 200');
+    })
+    .catch(err => {
+      res.status(500);
+      res.end();
+      log.error({ err: err.stack });
+    });
+});
+
 router.get('*', (req, res) => {
   res.status(404);
   res.end();
