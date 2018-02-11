@@ -10,7 +10,7 @@
   }
 
   p, span {
-    font-size: 16px;
+    font-size: t-font-size(xsmall);
   }
 
   a {
@@ -19,5 +19,12 @@
 
   iframe, img {
     max-width: 100%;
+  }
+
+  pre {
+    background: t-color(light-grey);
+    border-radius: 5px;
+    color: t-color(dark-grey);
+    padding: t-spacing(medium);
   }
 }

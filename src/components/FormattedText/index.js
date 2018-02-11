@@ -25,6 +25,9 @@ const FormattedText = ({ content, className }) => (
         item.type === 'video' ?
           <iframe src={item.url} width={item.dimensions.width} height={item.dimensions.height} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen key={i} />
         :
+        item.type === 'preformatted' ?
+          <pre><code>{item.text}</code></pre>
+        :
         ''
       ))
     }
