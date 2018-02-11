@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import closeOverlays from '../../actions/closeOverlays';
 
 class PageContainer extends React.Component {
   static propTypes = {
@@ -25,6 +26,7 @@ class PageContainer extends React.Component {
   componentDidMount () {
     this.unlisten = this.props.history.listen((location, action) => {
       this.fetchData();
+      this.props.closeOverlays();
     });
   }
 
@@ -56,4 +58,8 @@ class PageContainer extends React.Component {
   }
 }
 
-export default PageContainer;
+const mapDispatchToProps = dispatch => ({
+  closeOverlays: () => dispatch(closeOverlays()),
+});
+
+export default connect(null, mapDispatchToProps)(PageContainer);
