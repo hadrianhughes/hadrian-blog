@@ -47,7 +47,7 @@ router.get('/search/:terms', (req, res) => {
 
 router.get('/posts/:page?', (req, res) => {
   const page = req.params.page || 1;
-  request(`${process.env.CONTENT_ENDPOINT}/type/post/${page}`)
+  request(`${process.env.CONTENT_ENDPOINT}/type/post/${page}?preview=1`)
     .then(result => {
       res.status(200);
       res.send(result);
