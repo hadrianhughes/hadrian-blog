@@ -33,8 +33,10 @@ class PostListContainer extends React.Component {
   }
 
   componentDidMount () {
-    this.props.addToResults(this.props.posts);
-    this.props.incrementPage();
+    if (this.props.results.length < 1) {
+      this.props.addToResults(this.props.posts);
+      this.props.incrementPage();
+    }
   }
 
   fetchMoreResults () {
