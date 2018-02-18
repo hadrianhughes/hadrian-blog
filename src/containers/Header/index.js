@@ -7,6 +7,7 @@ import {
   toggleSearch,
   closeOverlays,
   addToHeaderPosition,
+  setScrollHeight,
 } from '../../actions';
 
 import Header from '../../components/Header';
@@ -61,9 +62,8 @@ class HeaderContainer extends React.Component {
   handleScroll () {
     const { scrollTop } = document.documentElement;
 
-    this.props.addToHeaderPosition(-(scrollTop - this.state.lastScroll), -(HeaderContainer.height));
-
-    this.setState({ lastScroll: scrollTop });
+    this.props.addToHeaderPosition(-(scrollTop - this.props.scrollHeight), -(HeaderContainer.height));
+    this.props.setScrollHeight(scrollTop);
   }
 
   render () {
@@ -87,6 +87,7 @@ const mapStateToProps = state => ({
   menuOpen: state.toggleMenu,
   searchOpen: state.toggleSearch,
   headerPosition: state.addToHeaderPosition,
+  scrollHeight: state.setScrollHeight,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -100,6 +101,7 @@ const mapDispatchToProps = dispatch => ({
   },
   onCloseOverlay: () => dispatch(closeOverlays()),
   addToHeaderPosition: (value, min) => dispatch(addToHeaderPosition(value, min)),
+  setScrollHeight: value => dispatch(setScrollHeight(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);

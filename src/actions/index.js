@@ -5,6 +5,7 @@ import addToResults from './addToResults';
 import incrementPage from './incrementPage';
 import hideButton from './hideButton';
 import addToHeaderPosition from './addToHeaderPosition';
+import setScrollHeight from './setScrollHeight';
 
 export {
   toggleMenu,
@@ -14,4 +15,5 @@ export {
   incrementPage,
   hideButton,
   addToHeaderPosition,
+  setScrollHeight,
 };
