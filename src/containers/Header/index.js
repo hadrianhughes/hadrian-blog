@@ -8,9 +8,12 @@ import {
   closeOverlays,
   addToHeaderPosition,
   setScrollHeight,
+  setScrollLocked,
 } from '../../actions';
 
 import Header from '../../components/Header';
+
+const canUseDOM = !!((typeof window !== 'undefined' && window.document && window.document.createElement));
 
 class HeaderContainer extends React.Component {
   static propTypes = {
@@ -30,14 +33,10 @@ class HeaderContainer extends React.Component {
   };
 
   static height = 72;
+  static overlayDelay = 150;
 
   constructor (props) {
     super(props);
-
-    this.state = {
-      lastScroll: 0,
-      loaded: false,
-    };
 
     this.handleClickMenu = this.handleClickMenu.bind(this);
     this.handleClickSearch = this.handleClickSearch.bind(this);
@@ -63,7 +62,9 @@ class HeaderContainer extends React.Component {
     const { scrollTop } = document.documentElement;
 
     this.props.addToHeaderPosition(-(scrollTop - this.props.scrollHeight), -(HeaderContainer.height));
-    this.props.setScrollHeight(scrollTop);
+    if (!this.props.menuOpen && !this.props.searchOpen) {
+      this.props.setScrollHeight(scrollTop);
+    }
   }
 
   render () {
@@ -77,7 +78,7 @@ class HeaderContainer extends React.Component {
         onClickMenu={this.handleClickMenu}
         onClickSearch={this.handleClickSearch}
         headerPosition={this.props.headerPosition}
-        hide={(Math.abs(this.props.headerPosition) >= HeaderContainer.height || !this.state.loaded) && !overlayOpen}
+        hide={(Math.abs(this.props.headerPosition) >= HeaderContainer.height) && !overlayOpen}
       />
     )
   }
@@ -94,12 +95,21 @@ const mapDispatchToProps = dispatch => ({
   onOpenMenu: () => {
     dispatch(closeOverlays());
     dispatch(toggleMenu());
+    setTimeout(() => {
+      dispatch(setScrollLocked());
+    }, HeaderContainer.overlayDelay);
   },
   onOpenSearch: () => {
     dispatch(closeOverlays());
     dispatch(toggleSearch());
+    setTimeout(() => {
+      dispatch(setScrollLocked());
+    }, HeaderContainer.overlayDelay);
   },
-  onCloseOverlay: () => dispatch(closeOverlays()),
+  onCloseOverlay: () => {
+    dispatch(closeOverlays());
+    dispatch(setScrollLocked(false));
+  },
   addToHeaderPosition: (value, min) => dispatch(addToHeaderPosition(value, min)),
   setScrollHeight: value => dispatch(setScrollHeight(value)),
 });

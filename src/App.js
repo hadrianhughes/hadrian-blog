@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import Layout from './components/Layout';
+import Layout from './containers/Layout';
 import Routes from './Routes';
 
 import './styles/fonts.scss';

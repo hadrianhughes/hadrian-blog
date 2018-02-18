@@ -9,10 +9,6 @@
     overflow-x: hidden;
   }
 
-  body {
-    padding-top: t-rem($headerHeight);
-  }
-
   p, span {
     font-size: t-font-size(xsmall);
   }

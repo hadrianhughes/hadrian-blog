@@ -1,6 +1,15 @@
 @import '../../styles/settings.scss';
 @import '../../styles/tools.scss';
 
+.root {
+  padding-top: t-rem($headerHeight);
+
+  &.scrollLocked {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
 .main {
   background: t-color(white);
 

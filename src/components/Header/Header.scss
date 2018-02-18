@@ -16,6 +16,8 @@ $buttonSize: $headerHeight / 3;
   }
 
   &.overlayOpen {
+    @include t-transition(top);
+
     top: 0 !important;
   }
 }

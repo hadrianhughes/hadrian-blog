@@ -7,22 +7,24 @@ import '../../styles/grid.scss';
 import Header from '../../containers/Header';
 import Footer from '../Footer';
 
-const Layout = ({ children }) => (
-  <React.Fragment>
+const Layout = ({ children, scrollLocked }) => (
+  <div className={`${s.root} ${scrollLocked ? s.scrollLocked : ''}`}>
     <Header />
     <main className={s.main}>
     { children }
     </main>
     <Footer />
-  </React.Fragment>
+  </div>
 );
 
 Layout.propTypes = {
   children: PropTypes.node,
+  scrollLocked: PropTypes.bool,
 };
 
 Layout.defaultProps = {
   children: undefined,
+  scrollLocked: false,
 };
 
 export default Layout;

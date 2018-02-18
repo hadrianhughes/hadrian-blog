@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   request(`${process.env.CONTENT_ENDPOINT}/type/post`)
-    .then(result => {
+  .then(result => {
       res.status(200);
       res.send(result);
       log.info({ route: '/', status: 200 }, 'Responded with 200');
