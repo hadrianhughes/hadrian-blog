@@ -67,14 +67,17 @@ class HeaderContainer extends React.Component {
   }
 
   render () {
+    const overlayOpen = this.props.menuOpen || this.props.searchOpen;
+
     return (
       <Header
         menuOpen={this.props.menuOpen}
         searchOpen={this.props.searchOpen}
+        overlayOpen={overlayOpen}
         onClickMenu={this.handleClickMenu}
         onClickSearch={this.handleClickSearch}
         headerPosition={this.props.headerPosition}
-        hide={Math.abs(this.props.headerPosition) >= HeaderContainer.height || !this.state.loaded}
+        hide={(Math.abs(this.props.headerPosition) >= HeaderContainer.height || !this.state.loaded) && !overlayOpen}
       />
     )
   }

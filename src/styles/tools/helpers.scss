@@ -28,3 +28,7 @@
     transform: translate(-50%, -50%);
   }
 }
+
+@mixin t-transition ($properties: all, $time: .15s, $timing: linear) {
+  transition: $properties $time $timing;
+}

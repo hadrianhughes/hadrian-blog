@@ -14,6 +14,10 @@ $buttonSize: $headerHeight / 3;
   &.hide {
     visibility: hidden;
   }
+
+  &.overlayOpen {
+    top: 0 !important;
+  }
 }
 
 .title {
