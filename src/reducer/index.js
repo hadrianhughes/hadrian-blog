@@ -5,6 +5,7 @@ import toggleSearch from './toggleSearch';
 import addToResults from './addToResults';
 import incrementPage from './incrementPage';
 import hideButton from './hideButton';
+import addToHeaderPosition from './addToHeaderPosition';
 
 export default combineReducers({
   toggleMenu,
@@ -12,4 +13,5 @@ export default combineReducers({
   addToResults,
   incrementPage,
   hideButton,
+  addToHeaderPosition,
 });

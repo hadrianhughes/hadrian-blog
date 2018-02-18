@@ -4,6 +4,7 @@ import closeOverlays from './closeOverlays';
 import addToResults from './addToResults';
 import incrementPage from './incrementPage';
 import hideButton from './hideButton';
+import addToHeaderPosition from './addToHeaderPosition';
 
 export {
   toggleMenu,
@@ -12,4 +13,5 @@ export {
   addToResults,
   incrementPage,
   hideButton,
+  addToHeaderPosition,
 };

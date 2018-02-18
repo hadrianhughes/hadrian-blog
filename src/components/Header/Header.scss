@@ -1,14 +1,19 @@
 @import '../../styles/settings.scss';
 @import '../../styles/tools.scss';
 
-$height: 72px;
-$buttonSize: $height / 3;
+$buttonSize: $headerHeight / 3;
 
 .root {
   background: t-color(brand);
-  height: t-rem($height);
-  position: relative;
+  height: t-rem($headerHeight);
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: t-layer(top);
+
+  &.hide {
+    visibility: hidden;
+  }
 }
 
 .title {
@@ -31,10 +36,10 @@ $buttonSize: $height / 3;
 
 .btnMenu {
   left: 0;
-  margin-left: calc((#{$height} - #{$buttonSize}) / 2);
+  margin-left: calc((#{$headerHeight} - #{$buttonSize}) / 2);
 }
 
 .btnSearch {
-  margin-right: calc((#{$height} - #{$buttonSize}) / 2);
+  margin-right: calc((#{$headerHeight} - #{$buttonSize}) / 2);
   right: 0;
 }
