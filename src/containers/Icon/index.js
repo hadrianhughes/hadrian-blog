@@ -18,24 +18,21 @@ class IconContainer extends React.Component {
     super(props);
 
     this.state = {
-      on: false,
       off: undefined,
     };
+  }
+
+  componentWillReceiveProps (nextProps) {
+    this.setState({ off: !nextProps.open });
   }
 
   render () {
     return (
       <Icon
         ariaLabel={this.props.ariaLabel}
-        onClick={() => {
-          this.props.onClick();
-          this.setState({
-            on: !this.state.on,
-            off: this.state.off === undefined ? false : !this.state.off,
-          });
-        }}
+        onClick={this.props.onClick}
         variant={this.props.variant}
-        on={this.state.on}
+        on={this.props.open}
         off={this.state.off}
       />
     )

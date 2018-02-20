@@ -17,10 +17,10 @@ const Header = ({ menuOpen, searchOpen, onClickMenu, onClickSearch, hide }) => (
       </h1>
     </Link>
     <div className={s.btnMenu}>
-      <Icon ariaLabel="Menu" onClick={onClickMenu} variant="hamburger" topLayer />
+      <Icon ariaLabel="Menu" onClick={onClickMenu} variant="hamburger" open={menuOpen} />
     </div>
     <div className={s.btnSearch}>
-      <Icon ariaLabel="Search" onClick={onClickSearch} variant="search" topLayer />
+      <Icon ariaLabel="Search" onClick={onClickSearch} variant="search" open={searchOpen} />
     </div>
     <Overlay visible={menuOpen}>
       {'MENU'}
