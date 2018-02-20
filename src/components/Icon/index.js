@@ -7,18 +7,24 @@ const variants = {
   search: 'search'
 };
 
-const Icon = ({ ariaLabel, onClick, variant }) => (
-  <button aria-label={ariaLabel} onClick={onClick} className={`${s.root} ${s[variants[variant]]}`}></button>
+const Icon = ({ ariaLabel, onClick, variant, on, off }) => (
+  <button aria-label={ariaLabel} onClick={onClick} className={`${s.root} ${s[variants[variant]]} ${on ? s.on : ''} ${off ? s.off : ''}`}>
+    <div />
+  </button>
 );
 
 Icon.propTypes = {
   ariaLabel: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   variant: PropTypes.string.isRequired,
+  on: PropTypes.bool,
+  off: PropTypes.bool,
 };
 
 Icon.defaultProps = {
   onClick: () => {},
+  on: false,
+  off: undefined,
 };
 
 export default Icon;

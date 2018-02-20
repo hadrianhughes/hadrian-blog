@@ -6,7 +6,7 @@ import s from './Header.scss';
 
 import svgLogo from '../../assets/logo.svg';
 
-import Icon from '../Icon';
+import Icon from '../../containers/Icon';
 import Overlay from '../Overlay';
 
 const Header = ({ menuOpen, searchOpen, overlayOpen, onClickMenu, onClickSearch, headerPosition, hide }) => (
