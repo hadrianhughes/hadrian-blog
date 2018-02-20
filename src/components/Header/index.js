@@ -9,8 +9,8 @@ import svgLogo from '../../assets/logo.svg';
 import Icon from '../../containers/Icon';
 import Overlay from '../Overlay';
 
-const Header = ({ menuOpen, searchOpen, overlayOpen, onClickMenu, onClickSearch, headerPosition, hide }) => (
-  <header className={`${s.root} ${hide ? s.hide : ''} ${overlayOpen ? s.overlayOpen : ''}`} style={{ top: headerPosition }}>
+const Header = ({ menuOpen, searchOpen, onClickMenu, onClickSearch, hide }) => (
+  <header className={`${s.root} ${hide ? s.hide : ''}`}>
     <Link to="/">
       <h1 className={s.title}>
         <img className={s.logo} src={svgLogo} alt="Hadrian Hughes Blog" />
@@ -36,7 +36,6 @@ Header.propTypes = {
   searchOpen: PropTypes.bool,
   onClickMenu: PropTypes.func,
   onClickSearch: PropTypes.func,
-  headerPosition: PropTypes.number,
 };
 
 Header.defaultProps = {
@@ -44,7 +43,6 @@ Header.defaultProps = {
   searchOpen: false,
   onClickMenu: () => {},
   onClickSearch: () => {},
-  headerPosition: 0,
 };
 
 export default Header;

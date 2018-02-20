@@ -2,7 +2,12 @@
 @import '../../styles/tools.scss';
 
 .root {
-  padding-top: t-rem($headerHeight);
+  padding-bottom: t-rem($headerHeight);
+
+  @include t-respond-to-min(small) {
+    padding-bottom: 0;
+    padding-top: t-rem($headerHeight);
+  }
 
   &.scrollLocked {
     height: 100vh;

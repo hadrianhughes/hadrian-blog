@@ -4,8 +4,6 @@ import closeOverlays from './closeOverlays';
 import addToResults from './addToResults';
 import incrementPage from './incrementPage';
 import hideButton from './hideButton';
-import addToHeaderPosition from './addToHeaderPosition';
-import setScrollHeight from './setScrollHeight';
 import setScrollLocked from './setScrollLocked';
 
 export {
@@ -15,7 +13,5 @@ export {
   addToResults,
   incrementPage,
   hideButton,
-  addToHeaderPosition,
-  setScrollHeight,
   setScrollLocked,
 };

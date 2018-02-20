@@ -5,8 +5,6 @@ import toggleSearch from './toggleSearch';
 import addToResults from './addToResults';
 import incrementPage from './incrementPage';
 import hideButton from './hideButton';
-import addToHeaderPosition from './addToHeaderPosition';
-import setScrollHeight from './setScrollHeight';
 import setScrollLocked from './setScrollLocked';
 
 export default combineReducers({
@@ -15,7 +13,5 @@ export default combineReducers({
   addToResults,
   incrementPage,
   hideButton,
-  addToHeaderPosition,
-  setScrollHeight,
   setScrollLocked,
 });

@@ -7,18 +7,17 @@ $buttonSize: $headerHeight / 3;
   background: t-color(brand);
   height: t-rem($headerHeight);
   position: fixed;
-  top: 0;
+  bottom: 0;
   width: 100%;
   z-index: t-layer(top);
 
-  &.hide {
-    visibility: hidden;
+  @include t-respond-to-min(small) {
+    bottom: auto;
+    top: 0;
   }
 
-  &.overlayOpen {
-    @include t-transition(top);
-
-    top: 0 !important;
+  &.hide {
+    visibility: hidden;
   }
 }
 
