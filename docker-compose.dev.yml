@@ -21,6 +21,7 @@ services:
       PORT: 3000
       NODE_ENV: development
       RESULTS_PAGE_SIZE: 10
+      API_ENDPOINT: https://hadrian-blog.prismic.io/api
     volumes:
       - ../content-service:/usr/src/app
     entrypoint: npm run dev
