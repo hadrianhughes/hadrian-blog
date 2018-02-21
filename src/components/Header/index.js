@@ -36,6 +36,7 @@ Header.propTypes = {
   searchOpen: PropTypes.bool,
   onClickMenu: PropTypes.func,
   onClickSearch: PropTypes.func,
+  hide: PropTypes.bool,
 };
 
 Header.defaultProps = {
@@ -43,6 +44,7 @@ Header.defaultProps = {
   searchOpen: false,
   onClickMenu: () => {},
   onClickSearch: () => {},
+  hide: false,
 };
 
 export default Header;

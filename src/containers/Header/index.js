@@ -35,6 +35,8 @@ class HeaderContainer extends React.Component {
 
     this.state = {
       lastScroll: 0,
+      scrollY: undefined,
+      hidden: false,
     };
 
     this.handleClickMenu = this.handleClickMenu.bind(this);
@@ -62,7 +64,12 @@ class HeaderContainer extends React.Component {
   }
 
   handleScroll () {
-    // handle stuff
+    const { scrollY } = window;
+
+    this.setState({
+      scrollY: Math.max(0, Math.min(document.body.clientHeight - window.innerHeight, scrollY)),
+      hidden: this.state.scrollY <= Math.max(0, Math.min(document.body.clientHeight - window.innerHeight, scrollY)) && scrollY > 0,
+    });
   }
 
   render () {
@@ -72,6 +79,7 @@ class HeaderContainer extends React.Component {
         searchOpen={this.props.searchOpen}
         onClickMenu={this.handleClickMenu}
         onClickSearch={this.handleClickSearch}
+        hide={this.state.hidden}
       />
     )
   }

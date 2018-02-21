@@ -4,10 +4,13 @@
 $buttonSize: $headerHeight / 3;
 
 .root {
+  @include t-transition(opacity);
+
   background: t-color(brand);
-  height: t-rem($headerHeight);
-  position: fixed;
   bottom: 0;
+  height: t-rem($headerHeight);
+  opacity: 1;
+  position: fixed;
   width: 100%;
   z-index: t-layer(top);
 
@@ -17,7 +20,7 @@ $buttonSize: $headerHeight / 3;
   }
 
   &.hide {
-    visibility: hidden;
+    opacity: 0;
   }
 }
 
