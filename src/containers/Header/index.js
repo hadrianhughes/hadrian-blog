@@ -33,16 +33,32 @@ class HeaderContainer extends React.Component {
   constructor (props) {
     super(props);
 
+    this.state = {
+      lastScroll: 0,
+    };
+
     this.handleClickMenu = this.handleClickMenu.bind(this);
     this.handleClickSearch = this.handleClickSearch.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentDidMount () {
+    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('touchmove', this.handleScroll);
   }
 
   handleClickMenu () {
-    this.props.menuOpen ? this.props.onCloseOverlay() : this.props.onOpenMenu();
+    const { menuOpen, searchOpen } = this.props;
+
+    menuOpen || searchOpen ? setTimeout(() => window.scrollTo(0, this.state.lastScroll), 10) : this.setState({ lastScroll: window.scrollY });
+    menuOpen ? this.props.onCloseOverlay() : this.props.onOpenMenu();
   }
 
   handleClickSearch () {
-    this.props.searchOpen ? this.props.onCloseOverlay() : this.props.onOpenSearch();
+    const { menuOpen, searchOpen } = this.props;
+
+    menuOpen || searchOpen ? setTimeout(() => window.scrollTo(0, this.state.lastScroll), 10) : this.setState({ lastScroll: window.scrollY });
+    searchOpen ? this.props.onCloseOverlay() : this.props.onOpenSearch();
   }
 
   handleScroll () {
@@ -70,10 +86,16 @@ const mapDispatchToProps = dispatch => ({
   onOpenMenu: () => {
     dispatch(closeOverlays());
     dispatch(toggleMenu());
+    setTimeout(() => {
+      dispatch(setScrollLocked(true));
+    }, 150);
   },
   onOpenSearch: () => {
     dispatch(closeOverlays());
     dispatch(toggleSearch());
+    setTimeout(() => {
+      dispatch(setScrollLocked(true));
+    }, 150);
   },
   onCloseOverlay: () => {
     dispatch(closeOverlays());
