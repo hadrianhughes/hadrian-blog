@@ -28,13 +28,13 @@ class LayoutContainer extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     if (nextProps.scrollLocked && !this.state.wasLocked) {
-      this.setState({ lastScrollHeight: nextProps.scrollHeight });
+      this.setState({ lastScrollHeight: window.scrollY });
     }
 
     if (this.state.wasLocked && !nextProps.scrollLocked) {
       setTimeout(() => {
         scrollTo(0, this.state.lastScrollHeight);
-      }, 0);
+      }, 10);
     }
 
     this.setState({ wasLocked: nextProps.scrollLocked });

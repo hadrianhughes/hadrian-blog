@@ -20,6 +20,7 @@ $buttonSize: $headerHeight / 3;
   }
 
   &.hide {
+    pointer-events: none;
     opacity: 0;
   }
 }

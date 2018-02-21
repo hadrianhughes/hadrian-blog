@@ -12,6 +12,10 @@
   &.scrollLocked {
     height: 100vh;
     overflow: hidden;
+
+    .main {
+      visibility: hidden;
+    }
   }
 }
 

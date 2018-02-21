@@ -19,11 +19,17 @@ class IconContainer extends React.Component {
 
     this.state = {
       off: undefined,
+      used: false,
     };
   }
 
   componentWillReceiveProps (nextProps) {
-    this.setState({ off: !nextProps.open });
+    const update = { used: this.state.used };
+    if (nextProps.open) update.used = true;
+
+    if (update.used) update.off = !nextProps.open;
+
+    this.setState({ ...update });
   }
 
   render () {

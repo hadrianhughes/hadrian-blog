@@ -17,6 +17,7 @@ class HeaderContainer extends React.Component {
   static propTypes = {
     menuOpen: PropTypes.bool,
     searchOpen: PropTypes.bool,
+    scrollLocked: PropTypes.bool,
     onOpenMenu: PropTypes.func.isRequired,
     onOpenSearch: PropTypes.func.isRequired,
     onCloseOverlay: PropTypes.func.isRequired,
@@ -25,6 +26,7 @@ class HeaderContainer extends React.Component {
   static defaultProps = {
     menuOpen: false,
     searchOpen: false,
+    scrollLocked: false,
   };
 
   static height = 72;
@@ -34,9 +36,9 @@ class HeaderContainer extends React.Component {
     super(props);
 
     this.state = {
-      lastScroll: 0,
       scrollY: undefined,
       hidden: false,
+      wasLocked: false,
     };
 
     this.handleClickMenu = this.handleClickMenu.bind(this);
@@ -50,17 +52,11 @@ class HeaderContainer extends React.Component {
   }
 
   handleClickMenu () {
-    const { menuOpen, searchOpen } = this.props;
-
-    menuOpen || searchOpen ? setTimeout(() => window.scrollTo(0, this.state.lastScroll), 10) : this.setState({ lastScroll: window.scrollY });
-    menuOpen ? this.props.onCloseOverlay() : this.props.onOpenMenu();
+    this.props.menuOpen ? this.props.onCloseOverlay() : this.props.onOpenMenu();
   }
 
   handleClickSearch () {
-    const { menuOpen, searchOpen } = this.props;
-
-    menuOpen || searchOpen ? setTimeout(() => window.scrollTo(0, this.state.lastScroll), 10) : this.setState({ lastScroll: window.scrollY });
-    searchOpen ? this.props.onCloseOverlay() : this.props.onOpenSearch();
+    this.props.searchOpen ? this.props.onCloseOverlay() : this.props.onOpenSearch();
   }
 
   handleScroll () {
@@ -68,7 +64,8 @@ class HeaderContainer extends React.Component {
 
     this.setState({
       scrollY: Math.max(0, Math.min(document.body.clientHeight - window.innerHeight, scrollY)),
-      hidden: this.state.scrollY <= Math.max(0, Math.min(document.body.clientHeight - window.innerHeight, scrollY)) && scrollY > 0,
+      hidden: this.state.wasLocked ? this.state.hidden : this.state.scrollY <= Math.max(0, Math.min(document.body.clientHeight - window.innerHeight, scrollY)) && scrollY > 0,
+      wasLocked: this.props.scrollLocked,
     });
   }
 
@@ -88,6 +85,7 @@ class HeaderContainer extends React.Component {
 const mapStateToProps = state => ({
   menuOpen: state.toggleMenu,
   searchOpen: state.toggleSearch,
+  scrollLocked: state.setScrollLocked,
 });
 
 const mapDispatchToProps = dispatch => ({
