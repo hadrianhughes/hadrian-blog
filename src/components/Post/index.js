@@ -9,7 +9,7 @@ import FormattedText from '../../containers/FormattedText';
 
 const Post = ({ imageSrc, imageAlt, title, body }) => (
   <React.Fragment>
-    <img src="http://placecage.com/1200/600" alt={imageAlt} className={s.image} />
+    <img src="http://placecage.com/1200/400" alt={imageAlt} className={s.image} />
     <div className="row">
       <div className="column small-12">
         <Heading size={2}>{title}</Heading>
