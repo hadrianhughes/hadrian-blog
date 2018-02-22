@@ -1,3 +1,6 @@
+@import '../../styles/settings.scss';
+@import '../../styles/tools.scss';
+
 $animation_duration: .4s;
 
 .root {
@@ -7,15 +10,13 @@ $animation_duration: .4s;
   width: 100%;
 }
 
-/*
-  HAMBURGER STARTS
-*/
+/* HAMBURGER STARTS */
 
 .hamburger {
   div,
   div::before,
   div::after {
-    background: white;
+    background: t-color(white);
     content: '';
     height: calc(100% / 6);
     width: 100%;
@@ -66,10 +67,6 @@ $animation_duration: .4s;
       animation-name: hamburger-bottom-off;
     }
   }
-}
-
-.search {
-  background: url('../../assets/search.svg');
 }
 
 @keyframes hamburger-top-on {
@@ -132,6 +129,153 @@ $animation_duration: .4s;
   }
 }
 
-/*
-  HAMBURGER ENDS
-*/
+/* HAMBURGER ENDS */
+
+/* SHARE STARTS */
+
+.share {
+  div {
+    background-color: rgba(255, 255, 255, 0);
+    height: 100%;
+    position: relative;
+    transform: rotate(45deg) translate(20%, 20%);
+    width: 100%;
+
+    &,
+    &::before,
+    &::after {
+      animation-duration: $animation_duration;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+    }
+
+    &::before {
+      background-color: t-color(white);
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      width: calc(100% / 6);
+    }
+
+    &::after {
+      background-color: t-color(white);
+      content: '';
+      height: calc(100% / 6);
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  &.on div {
+    animation-name: share-div-on;
+
+    &::before {
+      animation-name: share-left-on;
+    }
+
+    &::after {
+      animation-name: share-right-on;
+    }
+  }
+
+  &.off div {
+    animation-name: share-div-off;
+
+    &::before {
+      animation-name: share-left-off;
+    }
+
+    &::after {
+      animation-name: share-right-off;
+    }
+  }
+}
+
+@keyframes share-right-on {
+  0% {
+    left: 0%;
+    transform: translateX(0%);
+  }
+  50% {
+    left: -50%;
+    transform: translateX(calc(50% / 6));
+  }
+  100% {
+    left: -50%;
+    transform: translateX(calc(50% / 6));
+  }
+}
+
+@keyframes share-right-off {
+  0% {
+    left: -50%;
+    transform: translateX(calc(50% / 6));
+  }
+  50% {
+    left: -50%;
+    transform: translateX(calc(50% / 6));
+  }
+  100% {
+    left: 0%;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes share-left-on {
+  0% {
+    top: 0%;
+    transform: translateX(0%);
+  }
+  50% {
+    top: -50%;
+    transform: translateY(calc(50% / 6));
+  }
+  100% {
+    top: -50%;
+    transform: translateY(calc(50% / 6));
+  }
+}
+
+@keyframes share-left-off {
+  0% {
+    top: -50%;
+    transform: translateY(calc(50% / 6));
+  }
+  50% {
+    top: -50%;
+    transform: translateY(calc(50% / 6));
+  }
+  100% {
+    top: 0%;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes share-div-on {
+  0% {
+    margin-top: 0%;
+  }
+  50% {
+    margin-top: 0%;
+  }
+  100% {
+    margin-top: 50%;
+  }
+}
+
+@keyframes share-div-off {
+  0% {
+    margin-top: 50%;
+  }
+  50% {
+    margin-top: 00%;
+  }
+  100% {
+    margin-top: 0%;
+  }
+}
+
+/* SHARE ENDS */

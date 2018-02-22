@@ -4,7 +4,7 @@ import s from './Icon.scss';
 
 const variants = {
   hamburger: 'hamburger',
-  search: 'search'
+  share: 'share'
 };
 
 const Icon = ({ ariaLabel, onClick, variant, on, off }) => (
