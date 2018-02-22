@@ -16,17 +16,17 @@ const Header = ({ menuOpen, searchOpen, onClickMenu, onClickSearch, hide }) => (
         <img className={s.logo} src={svgLogo} alt="Hadrian Hughes Blog" />
       </h1>
     </Link>
-    <div className={s.btnMenu}>
-      <Icon ariaLabel="Menu" onClick={onClickMenu} variant="hamburger" open={menuOpen} />
-    </div>
     <div className={s.btnSearch}>
       <Icon ariaLabel="Search" onClick={onClickSearch} variant="search" open={searchOpen} />
     </div>
-    <Overlay visible={menuOpen}>
-      {'MENU'}
-    </Overlay>
+    <div className={s.btnMenu}>
+      <Icon ariaLabel="Menu" onClick={onClickMenu} variant="hamburger" open={menuOpen} />
+    </div>
     <Overlay visible={searchOpen}>
       {'SEARCH'}
+    </Overlay>
+    <Overlay visible={menuOpen}>
+      {'MENU'}
     </Overlay>
   </header>
 );

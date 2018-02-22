@@ -43,12 +43,12 @@ $buttonSize: $headerHeight / 3;
   width: t-rem($buttonSize);
 }
 
-.btnMenu {
+.btnSearch {
   left: 0;
   margin-left: calc((#{$headerHeight} - #{$buttonSize}) / 2);
 }
 
-.btnSearch {
+.btnMenu {
   margin-right: calc((#{$headerHeight} - #{$buttonSize}) / 2);
   right: 0;
 }
