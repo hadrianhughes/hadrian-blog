@@ -1,5 +1,5 @@
 # Specify node environment for inside container
-FROM node:carbon
+FROM node:alpine
 
 # Make directory for app to run in
 WORKDIR /usr/src/app
