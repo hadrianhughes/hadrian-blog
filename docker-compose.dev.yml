@@ -4,9 +4,9 @@ services:
     container_name: blog
     build: .
     ports:
-      - '80:80'
+      - '8080:8080'
     environment:
-      PORT: 80
+      PORT: 8080
       NODE_ENV: development
       CONTENT_ENDPOINT: http://content-service:3000
     volumes:
@@ -25,3 +25,15 @@ services:
     volumes:
       - ../content-service:/usr/src/app
     entrypoint: npm run dev
+  varnish:
+    container_name: varnish
+    depends_on:
+      - content-service
+      - blog
+    build: ../varnish
+    ports:
+      - '80:80'
+    networks:
+      default:
+        aliases:
+          - content-cache
